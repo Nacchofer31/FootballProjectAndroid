@@ -28,10 +28,15 @@ public class ActivityJugadores extends Activity {
         Adaptador adaptador = new Adaptador(this,getJugadores());
         gV.setAdapter(adaptador);
 
-        gV.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override //
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        gV.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 Toast.makeText(getApplicationContext(),nombres[position],Toast.LENGTH_SHORT);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
             }
         });
 

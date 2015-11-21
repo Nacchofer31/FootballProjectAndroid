@@ -101,11 +101,6 @@ public class ActivityLigasEquipos extends Activity {
 
                 liga = ligasSP.getSelectedItem().toString();
                 equipo = equiposSP.getSelectedItem().toString();
-
-                //ligaTexto.setText(liga);
-                //equipoTexto.setText(equipo);
-                Toast.makeText(ActivityLigasEquipos.this,"Liga: "+liga+"Equipo: "+equipo, Toast.LENGTH_SHORT).show();
-
             }
 
             @Override
@@ -114,7 +109,6 @@ public class ActivityLigasEquipos extends Activity {
             }
 
         });
-
     }
 
     public void comprobarBoton(){
@@ -122,7 +116,7 @@ public class ActivityLigasEquipos extends Activity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(ActivityLigasEquipos.this,ActivityJugadores.class);
-                startActivityForResult(i,REQUEST_CODE);
+                startActivityForResult(i, REQUEST_CODE);
             }
         });
     }
