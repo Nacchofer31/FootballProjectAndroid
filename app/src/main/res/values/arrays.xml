@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--LIGAS-->
+    <string-array name="ligas">
+        <item>LigaBBVA</item>
+        <item>BarclaysPL</item>
+        <item>SerieA</item>
+        <item>Ligue1</item>
+    </string-array>
+
+    <!--BBVA-->
+    <string-array name="ligaBBVA">
+        <item>RealMadrid</item>
+        <item>BarcelonaFC</item>
+        <item>ValenciaCF</item>
+        <item>Sevilla</item>
+    </string-array>
+
+    <!--BARCLAYS-->
+    <string-array name="barclaysPL">
+        <item>M.United</item>
+        <item>M.City</item>
+        <item>Everton</item>
+        <item>Chelsea</item>
+    </string-array>
+
+    <!--SERIE A-->
+    <string-array name="serieA">
+        <item>ACMilan</item>
+        <item>InterMilan</item>
+        <item>Sandoria</item>
+        <item>Udinense</item>
+    </string-array>
+
+    <!--LIGUE1-->
+    <string-array name="ligue1">
+        <item>PSG</item>
+        <item>Marsella</item>
+        <item>OLyon</item>
+        <item>Lille</item>
+    </string-array>
+</resources>
