@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ExamPractise</string>
+    <string name="action_settings">Settings</string>
+    <string name="equipos">Teams</string>
+    <string name="hello_world"></string>
+    <string name="ligas">Leagues</string>
+    <string name="title_activity_activity_jugadores">FootBallApp</string>
+</resources>

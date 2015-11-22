@@ -3,5 +3,7 @@
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
-    <string name="title_activity_activity_jugadores">ActivityJugadores</string>
+    <string name="title_activity_activity_jugadores">FootBallApp</string>
+    <string name="ligas">Ligas</string>
+    <string name="equipos">Equipos</string>
 </resources>
