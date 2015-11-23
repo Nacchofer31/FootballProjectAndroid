@@ -39,4 +39,23 @@
         <item>OLyon</item>
         <item>Lille</item>
     </string-array>
+
+    <string-array name="jugadores">
+        <item>DeGea</item>
+        <item>Rojo</item>
+        <item>Jones</item>
+        <item>Smalling</item>
+        <item>Darmian</item>
+        <item>Schweinsteiger</item>
+        <item>Mata</item>
+        <item>Schneiderlin</item>
+        <item>Memphis</item>
+        <item>Martial</item>
+        <item>Rooney</item>
+        <item>Lingard</item>
+        <item>Young</item>
+        <item>Felaini</item>
+        <item>Herrera</item>
+        <item>Bolt</item>
+    </string-array>
 </resources>

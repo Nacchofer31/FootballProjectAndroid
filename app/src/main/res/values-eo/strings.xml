@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Ekzameno Revizio</string>
+    <string name="action_settings">Agordoj</string>
+    <string name="btnTxt">Ludantoj</string>
+    <string name="btnTxt2">Ligoj kaj Teamoj</string>
+    <string name="ligas">Ligoj</string>
+    <string name="equipos">Teamoj</string>
+    <string name="title_activity_activity_jugadores">FootballApp</string>
+</resources>

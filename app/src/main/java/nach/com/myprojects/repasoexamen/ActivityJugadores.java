@@ -3,6 +3,7 @@ package nach.com.myprojects.repasoexamen;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -19,9 +20,8 @@ public class ActivityJugadores extends Activity {
     GridView gV;
     Button boton;
     String equipo, liga, jugador;
+    String[]jug;
 
-    String[] nombres={"DeGea","Rojo","Jones","Smalling","Darmian","Schweinsteiger","Mata","Schneiderlin","Memphis",
-            "Martial","Rooney","Lingard","Young","Felaini","Herrera","Bolt"};
     int[] images={R.drawable.degea,R.drawable.rojo,R.drawable.jones,R.drawable.smalling,R.drawable.darmian,R.drawable.schweins,
             R.drawable.mata,R.drawable.schneiderlin,R.drawable.memphis,R.drawable.martial,R.drawable.rooney,R.drawable.lingard,
             R.drawable.young,R.drawable.fellaini,R.drawable.herrera,R.drawable.bolt};
@@ -41,8 +41,10 @@ public class ActivityJugadores extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_activity_jugadores);
         ArrayList<Jugador> jugadores=new ArrayList<Jugador>();
-        for(int i=0;i<nombres.length;i++){
-            jugadores.add(new Jugador(nombres[i],images[i]));
+        jug=getResources().getStringArray(R.array.jugadores);
+        for(int i=0;i<jug.length;i++){
+            jugadores.add(new Jugador(jug[i],images[i]));
+            Log.i("Sip",jug[i]+": AÑADIDO");
         }
         Bundle b =getIntent().getExtras();
         if(b!=null){
@@ -75,21 +77,31 @@ public class ActivityJugadores extends Activity {
         gV.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Toast t = Toast.makeText(getApplicationContext(), nombres[position], Toast.LENGTH_SHORT);
+                Toast t = Toast.makeText(getApplicationContext(), jug[position], Toast.LENGTH_SHORT);
                 t.show();
-                jugador = nombres[position];
+                jugador = jug[position];
             }
         });
 
         boton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                finish();
+                if(camposVacios()) {
+                    finish();
+                }else{
+                    Toast t=Toast.makeText(getApplicationContext(), "Estás en la mierda, compañero, no has elegido ningún jugador", Toast.LENGTH_SHORT);
+                    t.show();
+                }
             }
         });
     }
 
-
+    public boolean camposVacios(){
+        if(jugador==null){
+            return false;
+        }
+        return true;
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
