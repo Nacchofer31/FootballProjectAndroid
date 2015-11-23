@@ -59,7 +59,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Jugadores"
+        android:text="@string/btnTxt"
         android:id="@+id/btnJugadores"
         android:layout_below="@+id/ligaText"
         android:layout_alignParentStart="true" />

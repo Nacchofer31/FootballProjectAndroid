@@ -6,4 +6,6 @@
     <string name="hello_world"></string>
     <string name="ligas">Leagues</string>
     <string name="title_activity_activity_jugadores">FootBallApp</string>
+    <string name="btnTxt">Players</string>
+    <string name="btnTxt2">Leagues and Teams</string>
 </resources>

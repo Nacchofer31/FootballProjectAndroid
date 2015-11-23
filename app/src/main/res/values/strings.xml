@@ -6,4 +6,7 @@
     <string name="title_activity_activity_jugadores">FootBallApp</string>
     <string name="ligas">Ligas</string>
     <string name="equipos">Equipos</string>
+    <string name="btnTxt">Jugadores</string>
+    <string name="btnTxt2">Ligas y Equipos</string>
+
 </resources>

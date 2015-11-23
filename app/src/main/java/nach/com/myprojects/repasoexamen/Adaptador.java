@@ -1,6 +1,7 @@
 package nach.com.myprojects.repasoexamen;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,14 +14,16 @@ import java.util.ArrayList;
 /**
  * Created by Nach on 21/11/2015.
  */
-public class Adaptador extends BaseAdapter {
+public abstract class Adaptador extends BaseAdapter {
+    private Context c;
+    private int layout;
+    private ArrayList<?> jugadores;
 
-    Context c;
-    ArrayList<Jugador> jugadores;
-
-    public Adaptador(Context c,ArrayList<Jugador> jugadores){
+    public Adaptador(Context c,int layout,ArrayList<?> jugadores){
+        super();
         this.c=c;
         this.jugadores=jugadores;
+        this.layout=layout;
     }
 
     @Override
@@ -35,22 +38,19 @@ public class Adaptador extends BaseAdapter {
 
     @Override
     public long getItemId(int position) {
-        return 0;
+        return position;
     }
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        LayoutInflater inflater = (LayoutInflater)c.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         if(convertView==null){
-            convertView=inflater.inflate(R.layout.jugador,parent,false);
+            LayoutInflater inflater = (LayoutInflater)c.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            convertView=inflater.inflate(layout,null);
         }
-
-        ImageView img= (ImageView) convertView.findViewById(R.id.imageJugador);
-        TextView nombre = (TextView) convertView.findViewById(R.id.nombreJugador);
-
-        img.setImageResource(jugadores.get(position).getImg());
-        nombre.setText(jugadores.get(position).getNombre());
-
+        onEntrada(jugadores.get(position),convertView);
         return convertView;
     }
+
+    public abstract void onEntrada(Object entrada, View view);
 }
+

@@ -1,7 +1,6 @@
 package nach.com.myprojects.repasoexamen;
 
 import android.app.Activity;
-import android.app.Notification;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -10,6 +9,8 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.GridView;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -18,6 +19,7 @@ public class ActivityJugadores extends Activity {
     GridView gV;
     Button boton;
     String equipo, liga, jugador;
+
     String[] nombres={"DeGea","Rojo","Jones","Smalling","Darmian","Schweinsteiger","Mata","Schneiderlin","Memphis",
             "Martial","Rooney","Lingard","Young","Felaini","Herrera","Bolt"};
     int[] images={R.drawable.degea,R.drawable.rojo,R.drawable.jones,R.drawable.smalling,R.drawable.darmian,R.drawable.schweins,
@@ -29,7 +31,7 @@ public class ActivityJugadores extends Activity {
         Intent i = new Intent();
         i.putExtra("jugadorIntent",jugador);
         i.putExtra("equipoIntent",equipo);
-        i.putExtra("ligaIntent",liga);
+        i.putExtra("ligaIntent", liga);
         setResult(RESULT_OK, i);
         super.finish();
     }
@@ -38,7 +40,10 @@ public class ActivityJugadores extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_activity_jugadores);
-
+        ArrayList<Jugador> jugadores=new ArrayList<Jugador>();
+        for(int i=0;i<nombres.length;i++){
+            jugadores.add(new Jugador(nombres[i],images[i]));
+        }
         Bundle b =getIntent().getExtras();
         if(b!=null){
             liga = b.getString("ligaIntent");
@@ -50,15 +55,29 @@ public class ActivityJugadores extends Activity {
         boton = (Button)findViewById(R.id.buttonEquipos);
         gV = (GridView)findViewById(R.id.gridView);
 
-        Adaptador adaptador = new Adaptador(this,getJugadores());
-        gV.setAdapter(adaptador);
+        gV.setAdapter(new Adaptador(this, R.layout.jugador, jugadores) {
+            @Override
+            public void onEntrada(Object entrada, View view) {
+                if (entrada != null) {
+                    ImageView img = (ImageView) view.findViewById(R.id.imageJugador);
+                    TextView nombre = (TextView) view.findViewById(R.id.nombreJugador);
+                    if(img!=null){
+                        img.setImageResource(((Jugador) entrada).getImg());
+                    }
+                    if(nombre!=null){
+                        nombre.setText(((Jugador)entrada).getNombre());
+                    }
+                }
+            }}
+        );
+
 
         gV.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Toast t=Toast.makeText(getApplicationContext(), nombres[position], Toast.LENGTH_SHORT);
+                Toast t = Toast.makeText(getApplicationContext(), nombres[position], Toast.LENGTH_SHORT);
                 t.show();
-                jugador=nombres[position];
+                jugador = nombres[position];
             }
         });
 
@@ -70,13 +89,7 @@ public class ActivityJugadores extends Activity {
         });
     }
 
-    private ArrayList<Jugador> getJugadores(){
-        ArrayList<Jugador> jugadores=new ArrayList<Jugador>();
-        for(int i =0;i<nombres.length;i++){
-            jugadores.add(new Jugador(nombres[i],images[i]));
-        }
-        return jugadores;
-    }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

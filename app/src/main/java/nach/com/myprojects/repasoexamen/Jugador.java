@@ -7,6 +7,11 @@ public class Jugador {
     private String nombre;
     private int img;
 
+    public Jugador(String nombre,int img){
+        this.img=img;
+        this.nombre=nombre;
+    }
+
     public int getImg() {
         return img;
     }
@@ -23,9 +28,5 @@ public class Jugador {
         this.nombre = nombre;
     }
 
-    public Jugador(String nombre,int img){
-        this.img=img;
-        this.nombre=nombre;
 
-    }
 }
